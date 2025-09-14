@@ -146,7 +146,7 @@ task.spawn(function()
         task.wait(RESCAN_SEC)
         for model, _ in pairs(espObjects) do if not model or not model.Parent then removeESP(model) end end
         for _, obj in ipairs(workspace:GetDescendants()) do
-            if obj:IsA("Model") and obj.Name:lower():find("egg") then
+            if obj:IsA("Model") and (obj.Name:lower():find("egg") or obj.Name:lower():find("fluffy") or obj.Name:lower():find("knight")) then
                 if not espObjects[obj] then createESP(obj) else
                     local data = espObjects[obj]
                     if not isValidPart(data.part) then
